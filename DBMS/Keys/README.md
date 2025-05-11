@@ -1,5 +1,18 @@
 
 ---
+
+### 🔥 Key Takeaways:
+
+* **Primary Key**: The **unique identifier** for a record.
+* **Foreign Key**: Links to another table’s **primary key** to create relationships.
+* **Unique Key**: Enforces uniqueness, but can accept `NULL`.
+* **Candidate Key**: A **potential primary key**.
+* **Composite Key**: A primary key made of **multiple columns**.
+* **Super Key**: Any set of columns that can uniquely identify a row, **but may include unnecessary attributes**.
+* **Alternate Key**: A **non-primary candidate key**.
+
+
+---
 ## **1. Primary Key (PK)** 🔐
 
 ### 🔍 **Definition:**

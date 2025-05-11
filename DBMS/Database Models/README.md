@@ -1,3 +1,20 @@
+
+---
+
+### **Summary** 🎯
+
+Each database model has its own strengths and use cases:
+
+* **Hierarchical Model**: Best for simple, fixed relationships (tree-like).
+* **Network Model**: Suitable for complex many-to-many relationships.
+* **Relational Model**: Widely used for structured data, supports powerful querying with SQL.
+* **ER Model**: Used for conceptual database design and modeling.
+* **Object-Oriented Model**: Good for applications needing complex data relationships and behaviors.
+* **Document-based Model**: Ideal for flexible, semi-structured data that can vary from document to document.
+
+
+---
+
 ### **Database Models** 📊
 
 Database models are **logical structures** used to organize, store, and manage data. Each model has its own way of representing data and how different entities relate to one another. Let's dive into the key types of database models:
@@ -191,3 +208,4 @@ Each database model has its own strengths and use cases:
 * **Object-Oriented Model**: Good for applications needing complex data relationships and behaviors.
 * **Document-based Model**: Ideal for flexible, semi-structured data that can vary from document to document.
 
+---
