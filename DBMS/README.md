@@ -631,4 +631,305 @@ COMMIT;
 
 ---
 
+## 📘 **Phase 4: Normalization – Organizing Data Like a Pro** 🧠🧹
+
+---
+
+### 🔰 **What is Normalization?**
+
+**Normalization** is a **systematic approach** to minimize **data redundancy** and ensure **data integrity** by organizing tables and relationships in a relational database.
+
+🧽 Think of it as **cleaning and organizing your closet** so:
+
+* You don’t store duplicate clothes (data)
+* Everything has its place (structure)
+* You can find items easily (efficiency)
+
+---
+
+### 🎯 **Goals of Normalization:**
+
+* Eliminate redundancy (duplicate data)
+* Ensure data dependencies make sense
+* Avoid update, insert, and delete anomalies
+* Improve efficiency and integrity
+
+---
+
+## 🔺 **Types of Anomalies Normalization Fixes:**
+
+| Anomaly               | Description                                                           |
+| --------------------- | --------------------------------------------------------------------- |
+| 🔁 **Update Anomaly** | Same data repeated in multiple rows — changing one means changing all |
+| ➕ **Insert Anomaly**  | Can't insert data due to missing related data                         |
+| ❌ **Delete Anomaly**  | Deleting one row accidentally deletes valuable info                   |
+
+---
+
+## 📶 **Normalization Forms (1NF to 5NF)**
+
+Let’s go step by step:
+
+---
+
+### 📗 **1NF (First Normal Form)** – Atomicity
+
+✅ **Rules:**
+
+* All values must be **atomic** (indivisible)
+* No **repeating groups** or arrays in a column
+
+🔴 **Bad Table:**
+
+| RollNo | Name  | Subjects      |
+| ------ | ----- | ------------- |
+| 1      | Alice | Math, English |
+
+🟢 **1NF Table:**
+
+| RollNo | Name  | Subject |
+| ------ | ----- | ------- |
+| 1      | Alice | Math    |
+| 1      | Alice | English |
+
+---
+
+### 📘 **2NF (Second Normal Form)** – Remove Partial Dependencies
+
+✅ **Rules:**
+
+* Must be in **1NF**
+* Remove **partial dependency** (when a non-key attribute depends only on **part of a composite key**)
+
+🔴 Example:
+
+| CourseID | StudentID | StudentName | CourseName |
+| -------- | --------- | ----------- | ---------- |
+
+➡️ StudentName depends only on StudentID (partial dependency)
+
+🟢 **2NF:**
+
+1. **Student Table:** (StudentID → StudentName)
+2. **Course Table:** (CourseID → CourseName)
+3. **Enrollment Table:** (StudentID, CourseID)
+
+---
+
+### 📙 **3NF (Third Normal Form)** – Remove Transitive Dependency
+
+✅ **Rules:**
+
+* Must be in **2NF**
+* No **transitive dependency**: i.e., **non-prime attribute depends on another non-prime**
+
+🔴 Example:
+
+| StudentID | Name | Department | HODName |
+| --------- | ---- | ---------- | ------- |
+
+➡️ HODName depends on Department, not StudentID directly
+
+🟢 **3NF:**
+
+1. **Student Table:** (StudentID, Name, Department)
+2. **Department Table:** (Department → HODName)
+
+---
+
+### 📒 **BCNF (Boyce-Codd Normal Form)** – Stronger 3NF
+
+✅ **Rules:**
+
+* Must be in **3NF**
+* For every **functional dependency X → Y**, **X should be a super key**
+
+🔴 Rare, but necessary when a table has **more than one candidate key** and they overlap.
+
+---
+
+### 📕 **4NF (Fourth Normal Form)** – Remove Multivalued Dependency
+
+✅ **Rules:**
+
+* Must be in **BCNF**
+* No table should have **multivalued dependencies**
+
+🔴 Example:
+
+| Student | Course | Hobby    |
+| ------- | ------ | -------- |
+| John    | Math   | Reading  |
+| John    | Math   | Swimming |
+
+➡️ Split into two tables (Student-Course and Student-Hobby)
+
+---
+
+### 📔 **5NF (Fifth Normal Form)** – Decompose without data loss
+
+✅ Focuses on **joining** and **lossless decomposition**
+Rarely used in practice, but crucial in **complex relationships**.
+
+---
+
+## 🧠 **How to Identify Dependencies**
+
+Use **Functional Dependency (FD)**:
+
+👉 **A → B** means **"A determines B"**
+If you know A, you know B.
+
+✅ Example: `StudentID → Name` (each ID maps to exactly one Name)
+
+---
+
+## 🧪 **Real-World Example: From Raw to Normalized**
+
+🔴 **Unnormalized Table:**
+
+| OrderID | CustomerName | Product   | Quantity |
+| ------- | ------------ | --------- | -------- |
+| 1       | Alice        | Pen, Book | 2, 1     |
+
+🟢 **Step-by-Step Normalization:**
+
+**1NF:**
+
+| OrderID | CustomerName | Product | Quantity |
+| ------- | ------------ | ------- | -------- |
+| 1       | Alice        | Pen     | 2        |
+| 1       | Alice        | Book    | 1        |
+
+**2NF:**
+
+* Split into Customers, Products, Orders
+
+**3NF:**
+
+* Move Customer details (like address) to a separate table
+
+---
+
+## 📘 **Phase 5: Transactions & Concurrency Control** 🔄🔒
+
+---
+
+### 🔰 **What is a Transaction?**
+
+A **transaction** is a **sequence of one or more SQL operations** performed as a single **logical unit of work**.
+
+✅ Either **all operations succeed (commit)**, or **none of them do (rollback)**.
+
+---
+
+### 🔐 **ACID Properties** – Core Principles of Transactions
+
+| Property            | Meaning                                                      | Emoji        |
+| ------------------- | ------------------------------------------------------------ | ------------ |
+| **A** – Atomicity   | All or nothing – the entire transaction is completed or none | 💣           |
+| **C** – Consistency | The database moves from one valid state to another           | 🧮           |
+| **I** – Isolation   | Transactions don’t interfere with each other                 | 🧍‍♂️🔒🧍‍♀️ |
+| **D** – Durability  | Once committed, changes survive system failures              | 💾           |
+
+---
+
+### 🛠️ **Transaction Control Commands (TCL)**
+
+| Command     | Description                     | Emoji |
+| ----------- | ------------------------------- | ----- |
+| `BEGIN`     | Starts a transaction            | 🔁    |
+| `COMMIT`    | Saves changes permanently       | ✅     |
+| `ROLLBACK`  | Undo changes since last `BEGIN` | ❌     |
+| `SAVEPOINT` | Creates a rollback checkpoint   | 📍    |
+
+#### 🔄 Example:
+
+```sql
+BEGIN;
+
+UPDATE Accounts SET Balance = Balance - 100 WHERE AccountID = 1;
+UPDATE Accounts SET Balance = Balance + 100 WHERE AccountID = 2;
+
+COMMIT;
+```
+
+If an error happens, use:
+
+```sql
+ROLLBACK;
+```
+
+---
+
+## 👥 **Concurrency Control** – Multi-user Safety
+
+Multiple users can access the DB at the same time. But without control, this can cause issues like:
+
+---
+
+### ❗ Common Concurrency Problems:
+
+| Problem                 | Explanation                                                         | Emoji |
+| ----------------------- | ------------------------------------------------------------------- | ----- |
+| **Lost Update**         | Two users update same data simultaneously, and one update gets lost | 🔄🗑️ |
+| **Dirty Read**          | A transaction reads uncommitted data from another                   | 🧽📖  |
+| **Non-repeatable Read** | A row is changed during your read                                   | 🔁📉  |
+| **Phantom Read**        | Rows added/deleted during your read                                 | 👻📄  |
+
+---
+
+## 🔐 **Isolation Levels (SQL Standard)**
+
+Isolation levels control **how and when changes are visible** to other transactions.
+
+| Level                | Dirty Read  | Non-repeatable Read | Phantom Read |
+| -------------------- | ----------- | ------------------- | ------------ |
+| **READ UNCOMMITTED** | ✅ Allowed   | ✅ Allowed           | ✅ Allowed    |
+| **READ COMMITTED**   | ❌ Prevented | ✅ Allowed           | ✅ Allowed    |
+| **REPEATABLE READ**  | ❌ Prevented | ❌ Prevented         | ✅ Allowed    |
+| **SERIALIZABLE**     | ❌ Prevented | ❌ Prevented         | ❌ Prevented  |
+
+---
+
+### 📘 Example Using Isolation:
+
+```sql
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+BEGIN;
+
+SELECT * FROM Orders WHERE Amount > 5000;
+
+-- Do updates...
+
+COMMIT;
+```
+
+---
+
+## 🧠 **Locks in DBMS**
+
+To implement isolation, DBMS uses **locks**:
+
+| Lock Type          | Use                                          |
+| ------------------ | -------------------------------------------- |
+| **Shared Lock**    | Multiple reads allowed                       |
+| **Exclusive Lock** | Only one write allowed                       |
+| **Deadlock**       | Two transactions wait forever for each other |
+
+🔁 DBMS uses **deadlock detection or timeout** to resolve such issues.
+
+---
+
+## 🧪 **Real-life Analogy**
+
+🧍‍♂️ You withdraw ₹500 from an ATM →
+🧍‍♀️ Someone else transfers ₹500 to your account at the same time →
+Without **isolation**, your final balance might be wrong.
+
+🛡️ **Transaction management ensures** this never happens.
+
+---
+
 
