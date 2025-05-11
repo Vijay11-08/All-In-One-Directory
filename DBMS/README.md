@@ -933,3 +933,338 @@ Without **isolation**, your final balance might be wrong.
 ---
 
 
+
+## 📘 **Phase 6: Indexing & Query Optimization** 📊⚡
+
+---
+
+### 🔰 **What is Indexing in DBMS?**
+
+An **index** in a database is like the index of a book — it helps you find information **quickly** without reading every page (or row).
+
+👉 It creates a **shortcut** for data access, improving **search speed** dramatically.
+
+---
+
+### 🎯 **Why Use Indexes?**
+
+✅ Faster `SELECT` queries
+✅ Improve search on large tables
+✅ Boost JOIN and WHERE clause performance
+❌ But: **Too many indexes** = slow inserts/updates (more overhead)
+
+---
+
+## 🧱 **Types of Indexes**
+
+| Type                    | Description                                     | Emoji |
+| ----------------------- | ----------------------------------------------- | ----- |
+| **Primary Index**       | Automatically created on the **Primary Key**    | 🔐    |
+| **Unique Index**        | Enforces unique values (like on `Email`)        | 🆔    |
+| **Clustered Index**     | Sorts actual data rows — only **one per table** | 🧩    |
+| **Non-clustered Index** | Stores pointers to data rows (can be many)      | 🧷    |
+| **Composite Index**     | Built on **multiple columns**                   | 🧠    |
+| **Full-text Index**     | Optimized for searching large text fields       | 🔍    |
+
+---
+
+### 🛠️ **Syntax to Create an Index**
+
+```sql
+-- Basic Index
+CREATE INDEX idx_student_name ON Students(Name);
+
+-- Composite Index
+CREATE INDEX idx_student_class_age ON Students(Class, Age);
+```
+
+---
+
+## 🔍 **How Indexes Work Internally**
+
+* Most RDBMS use **B-Trees** or **B+ Trees** 🌳
+* Keeps values in sorted order for **logarithmic (O(log n))** lookup
+* Reduces disk I/O
+
+---
+
+## ❗ When NOT to Use Indexes
+
+⚠️ Avoid indexes when:
+
+* Table is small (indexing won't help much)
+* You perform **many inserts/updates**
+* You index columns with **low uniqueness** (e.g., gender)
+
+---
+
+## 🔄 **Query Optimization Techniques**
+
+Here’s how you can **make your queries faster and smarter**:
+
+---
+
+### ✅ **1. Use SELECT Columns, Not `SELECT *`**
+
+```sql
+-- ❌ Bad
+SELECT * FROM Orders;
+
+-- ✅ Good
+SELECT OrderID, CustomerName FROM Orders;
+```
+
+✅ Reduces memory, network load, and improves speed
+
+---
+
+### ✅ **2. Use WHERE Clauses Effectively**
+
+```sql
+SELECT * FROM Employees WHERE Salary > 50000;
+```
+
+* **Filtered queries** use indexes more efficiently
+
+---
+
+### ✅ **3. Avoid Functions on Indexed Columns**
+
+```sql
+-- ❌ This won't use index
+WHERE YEAR(HireDate) = 2024
+
+-- ✅ Better
+WHERE HireDate BETWEEN '2024-01-01' AND '2024-12-31'
+```
+
+---
+
+### ✅ **4. Use JOINS Smartly**
+
+Prefer **INNER JOIN** over **OUTER JOIN** when possible.
+
+```sql
+SELECT e.Name, d.DeptName
+FROM Employees e
+JOIN Departments d ON e.DeptID = d.ID;
+```
+
+---
+
+### ✅ **5. Limit the Result Set**
+
+```sql
+SELECT * FROM Products LIMIT 10;
+```
+
+✅ Avoids pulling too many rows at once
+
+---
+
+### ✅ **6. Analyze Query Execution Plan**
+
+Use tools like:
+
+* MySQL: `EXPLAIN SELECT ...`
+* PostgreSQL: `EXPLAIN ANALYZE SELECT ...`
+
+It shows **how the DB executes your query**, so you can detect:
+
+* Full table scans
+* Missing indexes
+* Costly joins
+
+---
+
+### 🧠 **Other Optimization Tips**
+
+| Tip                       | Benefit                           |
+| ------------------------- | --------------------------------- |
+| Use proper **data types** | Reduces memory & disk usage       |
+| Normalize database        | Avoids redundancy, smaller tables |
+| Archive old data          | Speeds up live queries            |
+| Partition large tables    | Improves manageability            |
+
+---
+
+## ⚖️ **Index vs No Index Performance Example**
+
+📋 Table with 1,000,000 rows
+
+```sql
+-- Without Index: ~2-3 seconds
+SELECT * FROM Users WHERE Email = 'abc@example.com';
+
+-- With Index on Email: ~0.01 seconds
+```
+
+---
+
+## 📘 **Phase 7: PL/SQL / Stored Procedures / Triggers** 🧠🛠️
+
+---
+
+### 🔰 What is **PL/SQL**?
+
+**PL/SQL (Procedural Language/Structured Query Language)** is Oracle's procedural extension to SQL.
+
+💡 It allows you to write **logic-driven scripts** like **loops, conditions, procedures, functions**, etc., inside the database.
+
+✅ Combines SQL + Programming
+✅ Faster execution on server-side
+✅ Highly secure and reusable
+
+> MySQL and SQL Server also support procedural languages:
+>
+> * **MySQL**: uses `BEGIN...END` blocks
+> * **SQL Server**: uses **T-SQL**
+
+---
+
+## 🧱 **Components of PL/SQL**
+
+| Component     | Description                                            | Emoji |
+| ------------- | ------------------------------------------------------ | ----- |
+| **Block**     | Basic unit, includes declaration, execution, exception | 🧩    |
+| **Procedure** | Named block performing a task                          | 🔁    |
+| **Function**  | Like procedure, but returns a value                    | 📤    |
+| **Trigger**   | Auto-executes when event happens                       | ⏰     |
+| **Cursor**    | Used to handle row-by-row processing                   | 📜    |
+
+---
+
+## 🔧 **PL/SQL Block Structure**
+
+```sql
+DECLARE
+   -- Declarations (optional)
+   num1 NUMBER := 10;
+   num2 NUMBER := 20;
+   result NUMBER;
+BEGIN
+   -- Execution
+   result := num1 + num2;
+   DBMS_OUTPUT.PUT_LINE('Sum: ' || result);
+EXCEPTION
+   -- Error handling
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('An error occurred.');
+END;
+```
+
+✅ Use `DBMS_OUTPUT.PUT_LINE()` to print in Oracle
+✅ MySQL uses `SELECT` or `SIGNAL` for messages
+
+---
+
+## 🔄 **Stored Procedures** – Reusable SQL Logic
+
+> A **stored procedure** is a **named block** stored in the database that can be called multiple times.
+
+---
+
+### ✅ Syntax (MySQL / Oracle):
+
+```sql
+CREATE PROCEDURE AddNumbers(IN a INT, IN b INT)
+BEGIN
+   DECLARE sum INT;
+   SET sum = a + b;
+   SELECT sum AS Result;
+END;
+```
+
+📞 Call it:
+
+```sql
+CALL AddNumbers(10, 20);
+```
+
+---
+
+### 🔁 **Why Use Stored Procedures?**
+
+* Reduce redundancy
+* Improve performance (run on server)
+* Centralized business logic
+* More secure
+
+---
+
+## 📤 **Functions** – Return a Value
+
+### ✅ Syntax (MySQL):
+
+```sql
+CREATE FUNCTION Square(n INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+   RETURN n * n;
+END;
+```
+
+Call it:
+
+```sql
+SELECT Square(5); -- Result: 25
+```
+
+---
+
+## ⏰ **Triggers** – Automate Actions in the DB
+
+A **trigger** is code that runs **automatically** in response to an event like INSERT, UPDATE, or DELETE.
+
+---
+
+### ✅ Syntax (MySQL):
+
+```sql
+CREATE TRIGGER after_insert_student
+AFTER INSERT ON Students
+FOR EACH ROW
+BEGIN
+   INSERT INTO Logs(message) 
+   VALUES (CONCAT('New student added: ', NEW.Name));
+END;
+```
+
+📌 Trigger Parts:
+
+* **BEFORE / AFTER** event
+* **FOR EACH ROW**: acts on every affected row
+* Access **OLD** and **NEW** values
+
+---
+
+### 🧠 Use Cases for Triggers
+
+| Use Case       | Example                        |
+| -------------- | ------------------------------ |
+| Auto-logging   | Log changes on critical tables |
+| Validation     | Prevent invalid updates        |
+| Auditing       | Who changed what and when      |
+| Business rules | Auto-update totals or statuses |
+
+---
+
+## 🧠 Real-World Analogy
+
+* **Stored Procedure**: Like a **reusable machine** (you press a button and it does something specific).
+* **Function**: Like a **calculator** – give input, get output.
+* **Trigger**: Like a **security alarm** – it auto-activates when someone opens a door.
+
+---
+
+## 📋 Interview-Level Comparison
+
+| Feature         | Procedure  | Function          | Trigger     |
+| --------------- | ---------- | ----------------- | ----------- |
+| Returns value?  | ❌ Optional | ✅ Yes (mandatory) | ❌ No        |
+| Call manually?  | ✅ Yes      | ✅ Yes             | ❌ Auto-call |
+| Used in SELECT? | ❌ No       | ✅ Yes             | ❌ No        |
+
+---
+
