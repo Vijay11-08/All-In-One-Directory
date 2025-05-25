@@ -34,7 +34,8 @@
 
 ## 🧠 **Problem Solving & Learning**
 
-| Question                                                                                              | How do you approach learning a new technology? |
+| Question                                                        | How to Answer                                                                                |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |                                                                                             | How do you approach learning a new technology? |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | Explain with an example. Say you explore docs, tutorials, official courses, and apply it in projects. |                                                |
 
