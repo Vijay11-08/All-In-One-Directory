@@ -1,3 +1,6 @@
+In addition to **technical questions**, interviewers for a **Full Stack Developer** position often ask **personal, situational, and team-related questions** to assess your **personality, work ethic, communication skills**, and **cultural fit**.
+
+Here’s a categorized list of **non-technical/person-related questions** commonly asked, along with guidance for answering:
 
 ---
 
@@ -34,8 +37,7 @@
 
 ## 🧠 **Problem Solving & Learning**
 
-| Question                                                        | How to Answer                                                                                |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |                                                                                             | How do you approach learning a new technology? |
+| Question                                                                                              | How do you approach learning a new technology? |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | Explain with an example. Say you explore docs, tutorials, official courses, and apply it in projects. |                                                |
 
