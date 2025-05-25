@@ -37,7 +37,7 @@ Here’s a categorized list of **non-technical/person-related questions** common
 
 ## 🧠 **Problem Solving & Learning**
 
-| Question                                                                                              | How do you approach learning a new technology? |
+Question                                                                                              | How do you approach learning a new technology? |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | Explain with an example. Say you explore docs, tutorials, official courses, and apply it in projects. |                                                |
 
