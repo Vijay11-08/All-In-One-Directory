@@ -1,7 +1,7 @@
 
 ---
 
-### **1.**🎓 **Project Title: "GreenSteps: A Micro-Contribution Platform for Climate Actions via Daily Digital Tasks"**
+### **1.** 🎓 **Project Title: "GreenSteps: A Micro-Contribution Platform for Climate Actions via Daily Digital Tasks"**
 
 ---
 
@@ -64,7 +64,7 @@ Build a **gamified platform** where users can **complete small, trackable digita
 ---
 
 
-### **2.**🎓 **Project Title: "EchoBox: A Digital Time Capsule for Families and Communities"**
+### **2.** 🎓 **Project Title: "EchoBox: A Digital Time Capsule for Families and Communities"**
 
 ---
 
@@ -130,7 +130,7 @@ Basically, a **time-locked vault for digital memories**, usable by individuals, 
 ---
 ---
 
-### **3.**🎓 **Project Title: "MoodShelf: Emotion-Aware Digital Library That Changes Content Based on Your Mood"**
+### **3.** 🎓 **Project Title: "MoodShelf: Emotion-Aware Digital Library That Changes Content Based on Your Mood"**
 
 ---
 
@@ -203,7 +203,7 @@ Imagine a library that gives you calming content when you're stressed, motivatio
 ---
 
 
-### **4.**🎓 **Project Title: "Gravestone AI: A Digital Tombstone That Talks to Future Generations"**
+### **4.** 🎓 **Project Title: "Gravestone AI: A Digital Tombstone That Talks to Future Generations"**
 
 ---
 
