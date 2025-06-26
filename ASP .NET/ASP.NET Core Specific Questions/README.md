@@ -112,7 +112,7 @@ The **Startup** class is the main entry point for ASP.NET Core applications. It 
 **Kestrel** is a cross-platform, high-performance web server built into ASP.NET Core. It handles HTTP requests and responses.
 
 * **Used in ASP.NET Core**: Kestrel is the default web server for ASP.NET Core, especially in cloud and container-based environments.
-* **Comparison to IIS**: Kestrel is lightweight and designed for speed. IIS is a more feature-rich web server, but Kestrel is often used in combination with it (as a reverse proxy).
+* **Comparison to IIS**: Kestrel is lightweight and designed for speed. IIS is a more feature-rich web server, but Kestrel is often used in combination with it (as a reverse proxy). 
 
 ---
 
@@ -194,7 +194,7 @@ The **Startup** class is the main entry point for ASP.NET Core applications. It 
 ---
 
 ### **12. What are NuGet packages? Why are they important in ASP.NET Core development?** 📦
-
+ 
 **NuGet** is a **package manager** for .NET. It helps you install, update, and manage libraries and dependencies.
 
 * **Importance**: NuGet packages simplify dependency management and reduce the need for manually adding third-party libraries.
