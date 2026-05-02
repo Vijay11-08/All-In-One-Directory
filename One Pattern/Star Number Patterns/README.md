@@ -1,85 +1,52 @@
 
 ---
 
-## ⭐ **Star & number printing patterns** (like your 5×5 reference chart)
+## Star & number printing patterns
 
-Console patterns used in **Python / Java** courses and interviews. **All loops are written starting from `1`** (e.g. `for i in range(1, n + 1)` and `for (int i = 1; i <= n; i++)`).
+Console exercises used in **Python / Java** courses. **Loops use indices starting from `1`** (`for i in range(1, n + 1)` / `for (int i = 1; i <= n; i++)`) where applicable.
 
-| # | Name |
-| - | ---- |
-| 1 | Square Hollow Pattern |
-| 2 | Number Triangle (row *i* = digit *i* repeated *i* times, centered) |
-| 3 | Number Increasing Pyramid (`1` … `1 2 3 … i`) |
-| 4 | Number Increasing Reverse Pyramid (inverted) |
-| 5 | Number Changing Pyramid (Floyd: `1`, `2 3`, `4 5 6`, …) |
-| 6 | Zero–One Triangle |
-| 7 | Palindrome Triangle |
-| 8 | Rhombus Pattern (here: same solid diamond as many tutorial sheets) |
-| 9 | Diamond Pattern |
-| 10 | Butterfly Star Pattern |
-| 11 | Square Fill Pattern |
-| 12 | Right Half Pyramid |
-| 13 | Reverse Right Half Pyramid |
-| 14 | Left Half Pyramid |
-| 15 | Reverse Left Half Pyramid |
-| 16 | K Pattern |
-| 17 | Triangle Star Pattern (centered) |
-| 18 | Reverse Number Triangle Pattern |
-| 19 | Mirror Image Triangle Pattern (solid hourglass) |
-| 20 | Hollow Triangle Pattern |
-| 21 | Hollow Reverse Triangle Pattern |
-| 22 | Hollow Diamond Pyramid |
-| 23 | Hollow Hourglass Pattern |
-| 24 | Pascal’s Triangle (centered) |
-| 25 | Right Pascal’s Triangle (left-aligned rows) |
+**Implementation:** [`print_patterns.py`](./print_patterns.py) · [`PrintPatterns.java`](./PrintPatterns.java)
+
+**Reference chart:** `pattern-reference-chart.png` (place your saved grid image here if missing).
 
 ---
 
-## 🖼️ **Reference image**
+## All 25 patterns — one folder each
 
-The original **5×5 grid** you used is saved here as:
-
-`pattern-reference-chart.png` (same folder as this file)
-
-Open it side by side with the code when you practice.
+| # | Folder | # | Folder |
+| - | ------ | - | ------ |
+| 1 | [01 Square Hollow](./01-Square-Hollow/README.md) | 14 | [14 Left Half Pyramid](./14-Left-Half-Pyramid/README.md) |
+| 2 | [02 Number Triangle](./02-Number-Triangle/README.md) | 15 | [15 Reverse Left Half](./15-Reverse-Left-Half-Pyramid/README.md) |
+| 3 | [03 Number Increasing Pyramid](./03-Number-Increasing-Pyramid/README.md) | 16 | [16 K Pattern](./16-K-Pattern/README.md) |
+| 4 | [04 Number Increasing Reverse](./04-Number-Increasing-Reverse-Pyramid/README.md) | 17 | [17 Triangle Star](./17-Triangle-Star-Pattern/README.md) |
+| 5 | [05 Floyd / Changing Pyramid](./05-Number-Changing-Pyramid/README.md) | 18 | [18 Reverse Number Triangle](./18-Reverse-Number-Triangle/README.md) |
+| 6 | [06 Zero–One Triangle](./06-Zero-One-Triangle/README.md) | 19 | [19 Mirror / Hourglass](./19-Mirror-Image-Triangle/README.md) |
+| 7 | [07 Palindrome Triangle](./07-Palindrome-Triangle/README.md) | 20 | [20 Hollow Triangle](./20-Hollow-Triangle/README.md) |
+| 8 | [08 Rhombus](./08-Rhombus-Pattern/README.md) | 21 | [21 Hollow Reverse Triangle](./21-Hollow-Reverse-Triangle/README.md) |
+| 9 | [09 Diamond](./09-Diamond-Pattern/README.md) | 22 | [22 Hollow Diamond](./22-Hollow-Diamond-Pyramid/README.md) |
+| 10 | [10 Butterfly](./10-Butterfly-Star-Pattern/README.md) | 23 | [23 Hollow Hourglass](./23-Hollow-Hourglass/README.md) |
+| 11 | [11 Square Fill](./11-Square-Fill-Pattern/README.md) | 24 | [24 Pascal’s Triangle](./24-Pascals-Triangle/README.md) |
+| 12 | [12 Right Half Pyramid](./12-Right-Half-Pyramid/README.md) | 25 | [25 Right Pascal](./25-Right-Pascals-Triangle/README.md) |
+| 13 | [13 Reverse Right Half](./13-Reverse-Right-Half-Pyramid/README.md) | | |
 
 ---
 
-## ▶️ **How to run**
-
-**Python** (prints all 25 for size `n`; default `n=5`):
+## Run everything
 
 ```text
 python print_patterns.py
-python print_patterns.py 4
-```
+python print_patterns.py 5
 
-**Java** (compile once, then run):
-
-```text
 javac PrintPatterns.java
-java PrintPatterns
-java PrintPatterns 4
+java PrintPatterns 5
 ```
 
-Each program prints every pattern in order with a title bar. Read the source: every pattern is a **named function** you can copy into a smaller file or IDE.
+Compiled `.class` files are ignored via [`.gitignore`](./.gitignore).
 
 ---
 
-## 📁 **Files**
+## Explore more
 
-| File | Role |
-| ---- | ---- |
-| `print_patterns.py` | All 25 patterns in Python |
-| `PrintPatterns.java` | Same 25 in Java (Java 8+ friendly) |
-| `pattern-reference-chart.png` | Your reference grid |
-| `README.md` | This page |
-
----
-
-## 🔢 **“Starting from 1”**
-
-- **Control variable** `i` (and `j` where used) runs **`1 .. n`** in both languages.  
-- **Number patterns** that count (Floyd, increasing pyramids, Pascal rows) also **start values from 1** where the chart does.
+* [One Pattern hub](../README.md) — GoF + architectural + this section  
 
 ---

@@ -86,3 +86,7 @@ class InMemoryProductRepository implements ProductRepository {
     }
 }
 ```
+
+---
+
+← [Architectural Patterns](../README.md) · [One Pattern hub](../../README.md)

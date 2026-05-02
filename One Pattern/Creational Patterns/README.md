@@ -91,3 +91,10 @@ abstract class Dialog {
 ```
 
 ---
+
+## Explore more in this project
+
+* [One Pattern hub](../README.md) — all categories  
+* [Structural Patterns](../Structural%20Patterns/README.md) · [Behavioral Patterns](../Behavioral%20Patterns/README.md) · [Architectural Patterns](../Architectural%20Patterns/README.md) · [Star / number printing](../Star%20Number%20Patterns/README.md)
+
+---

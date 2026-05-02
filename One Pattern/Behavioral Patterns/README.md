@@ -135,3 +135,10 @@ class Context {
 ```
 
 ---
+
+## Explore more in this project
+
+* [One Pattern hub](../README.md) — all categories  
+* [Creational Patterns](../Creational%20Patterns/README.md) · [Structural Patterns](../Structural%20Patterns/README.md) · [Architectural Patterns](../Architectural%20Patterns/README.md) · [Star / number printing](../Star%20Number%20Patterns/README.md)
+
+---

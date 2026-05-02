@@ -8,6 +8,9 @@
 | Topic | Diagram + Python + Java |
 | ----- | ------------------------ |
 | MVC | [MVC](./MVC/README.md) |
+| MVP | [MVP](./MVP/README.md) |
+| MVVM | [MVVM](./MVVM/README.md) |
+| Dependency Injection | [Dependency Injection](./Dependency%20Injection/README.md) |
 | Repository | [Repository](./Repository/README.md) |
 
 ---
