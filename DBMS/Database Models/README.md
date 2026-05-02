@@ -196,7 +196,7 @@ Consider a **social media database**:
 
 ---
 
-### **Summary** 🎯
+
 
 Each database model has its own strengths and use cases:
 
