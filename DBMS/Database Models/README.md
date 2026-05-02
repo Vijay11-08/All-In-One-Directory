@@ -1,7 +1,6 @@
 
 ---
 
-### **Summary** 🎯
 
 Each database model has its own strengths and use cases:
 
