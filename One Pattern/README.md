@@ -15,6 +15,7 @@ This folder groups **common software design patterns**: how to solve recurring d
 | **Structural** | How classes/objects compose into larger structures | [Structural Patterns](./Structural%20Patterns/README.md) |
 | **Behavioral** | How objects collaborate and delegate responsibility | [Behavioral Patterns](./Behavioral%20Patterns/README.md) |
 | **Architectural & enterprise** | App-level structure and integration styles | [Architectural Patterns](./Architectural%20Patterns/README.md) |
+| **Star / number printing** | Console `*` and number shapes (25-chart style), Python & Java | [Star Number Patterns](./Star%20Number%20Patterns/README.md) |
 
 ---
 
